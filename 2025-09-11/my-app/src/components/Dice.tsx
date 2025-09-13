@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from "./Dice.module.css"
 
 function Dice() {
   const [dice, setDice] = useState(0)
@@ -9,8 +10,10 @@ function Dice() {
 
   return (
     <>
-      <button onClick={rollDice}>roll</button>
-      <div>{dice}</div>
+      <div className={styles.diceContainer}>
+        <button onClick={rollDice}>roll</button>
+        <div className={styles.dice}>{dice}</div>
+      </div>
     </>
   )
 }
