@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "../App.css"
-import ProfileCard from "./ProfileCard"
 
 function Counter() {
   const [count, setCount] = useState(0)
@@ -34,7 +33,6 @@ function Counter() {
           </button>
         ))}
       </div>
-      <ProfileCard />
     </>
   )
 }
