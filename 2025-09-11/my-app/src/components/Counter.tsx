@@ -23,7 +23,7 @@ function Counter() {
             {amount}
           </button>
         ))}
-        <button>count is {count}</button>
+        <button onClick={()=>setCount(0)}>count is {count}</button>
         {positiveButtons.map((amount, index) => (
           <button
             key={index}
