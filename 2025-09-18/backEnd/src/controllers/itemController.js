@@ -38,10 +38,35 @@ function deleteItem(req, res) {
     res.status(204).send()
 }
 
+function itemDetail(req, res) {
+    console.log(req.params)
+    const { id, detailType } = req.params
+    const item = items.find(i => i.id === parseInt(id))
+    if (!item) return res.status(404).json({ error: 'Item not found' })
+
+    res.json({
+        item: item,
+        message: `detail: ${detailType}`
+    })
+}
+
+function itemType(req, res) {
+    console.log("itemtype hit", req.params)
+    const { id, itemType: type } = req.params
+    const item = items.find(i => i.id === parseInt(id))
+    if (!item) return res.status(404).json({ error: 'item not found' })
+
+    res.json({
+        message: `item: ${item.name} - ${type}`
+    })
+}
+
 module.exports = {
     getItems,
     getItem,
     createItem,
     updateItem,
     deleteItem,
+    itemDetail,
+    itemType,
 }
