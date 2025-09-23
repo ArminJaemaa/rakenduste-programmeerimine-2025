@@ -1,35 +1,70 @@
+import {
+  Box,
+  Button,
+  List,
+  ListItem,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material"
 import styles from "../Modules/ProfileCard.module.css"
 
 function ProfileCard() {
   return (
     <>
-      <div className={styles.card}>
-        <h1>Armin Jaemaa</h1>
-        <ul>
-          <strong>hobid:</strong>
-          <li>jõusaal</li>
-          <li>reisimine</li>
-          <li>arvutimängud</li>
-        </ul>
-        <form>
-          <div className={styles.field}>
-            <label htmlFor="email">email:</label>
-            <input
-              type="text"
-              id="email"
-              placeholder="email"
-            />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="txt">text:</label>
-            <input
-              type="text"
-              id="txt"
-            />
-          </div>
-        </form>
-        <button>nupp</button>
-      </div>
+      <Box
+        sx={{
+          p: 3,
+          mt: 2,
+          maxWidth: 400,
+          mx: "auto",
+          borderRadius: 2,
+          boxShadow: 3,
+          background: "lightblue",
+        }}
+      >
+        <Typography
+          variant="h4"
+          className={styles.title}
+          gutterBottom
+        >
+          Armin Jaemaa
+        </Typography>
+
+        <Typography
+          variant="subtitle1"
+          fontWeight="bold"
+        >
+          Hobid:
+        </Typography>
+        <List>
+          <ListItem>Jõusaal</ListItem>
+          <ListItem>Reisimine</ListItem>
+          <ListItem>Arvutimängud</ListItem>
+        </List>
+
+        <Stack
+          spacing={2}
+          mt={2}
+        >
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+          />
+          <TextField
+            label="Text"
+            variant="outlined"
+            fullWidth
+          />
+          <Button
+            variant="contained"
+            color="primary"
+          >
+            Nupp
+          </Button>
+        </Stack>
+      </Box>
     </>
   )
 }
