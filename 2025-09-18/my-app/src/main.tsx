@@ -1,10 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import "./index.css"
+import App from "./App.tsx"
+import { HashRouter } from "react-router"
+import ReactDOM from "react-dom/client"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+const root = document.getElementById("root")!
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+})
+
+ReactDOM.createRoot(root).render(
+  <HashRouter>
+    <ThemeProvider theme={darkTheme}>
+      <App />
+    </ThemeProvider>
+  </HashRouter>,
 )
