@@ -1,4 +1,5 @@
 import React from "react"
+import { setItem } from "../hooks/useLocalStorage"
 
 interface BackButtonProps {
   onClick?: () => void
@@ -14,6 +15,7 @@ const BackButton: React.FC<BackButtonProps> = ({
       onClick()
     } else if (window.history.length > 1) {
       window.history.back()
+      setItem("testkey", { foo: "foo" })
     }
   }
 
