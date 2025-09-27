@@ -72,4 +72,10 @@ exports.update = (req, res) => {
     res.json(cats);
 };
 
-exports.delete = (req, res) => { };
+exports.delete = (req, res) => {
+    const name = req.params.name;
+    const cat = cats.find(i => i.name === name);
+    cat.deleted = true;
+
+    res.json(cats);
+};
