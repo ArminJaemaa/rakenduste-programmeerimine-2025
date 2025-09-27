@@ -55,12 +55,21 @@ exports.read = (req, res) => {
 
 exports.readOne = (req, res) => {
     const name = (req.params.name);
-    const cat = cats.find(i => i.name === name)
-    if (!cat) return res.status(404).json({ error: 'cat not found' })
-    console.log(cat)
+    const cat = cats.find(i => i.name === name);
+    if (!cat) return res.status(404).json({ error: 'cat not found' });
+    console.log(cat);
     res.sendStatus(200);
 }
 
-exports.update = (req, res) => { };
+exports.update = (req, res) => {
+    const name = req.params.name;
+    const { newName } = req.body;
+    const cat = cats.find(i => i.name === name);
+    if (!cat) return res.status(404).json({ error: 'cat not found' });
+    cat.name = newName;
+    cat.updatedAt = Date.now();
+
+    res.json(cats);
+};
 
 exports.delete = (req, res) => { };
