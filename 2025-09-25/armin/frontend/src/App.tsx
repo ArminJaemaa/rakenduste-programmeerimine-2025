@@ -1,5 +1,5 @@
 import "./App.css";
-import Cats from "./components/cats";
+import Cats from "./components/Cats";
 
 function App() {
   return <Cats />;
