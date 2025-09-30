@@ -38,11 +38,12 @@ type CatsListProps = {
 };
 
 const CatsList: React.FC<CatsListProps> = ({ cats }) => {
+  const availableCats = cats.filter((cat) => !cat.deleted);
   //const { cats } = props;
   //console.log(props);
   return (
     <List>
-      {cats.map((cat) => (
+      {availableCats.map((cat) => (
         <ListItem key={cat.id}>{JSON.stringify(cat)}</ListItem>
       ))}
     </List>
