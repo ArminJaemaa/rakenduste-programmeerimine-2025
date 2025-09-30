@@ -44,7 +44,9 @@ const CatsList: React.FC<CatsListProps> = ({ cats }) => {
   return (
     <List>
       {availableCats.map((cat) => (
-        <ListItem key={cat.id}>{JSON.stringify(cat)}</ListItem>
+        /* !cat.deleted && (saab ka nii) */ <ListItem key={cat.id}>
+          {JSON.stringify(cat)}
+        </ListItem>
       ))}
     </List>
   );
